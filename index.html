@@ -242,7 +242,13 @@ document.addEventListener('click',e=>{
 document.addEventListener('toggle',e=>{const d=e.target;if(d.tagName==='DETAILS'&&d.dataset.id){const i=+d.dataset.id;d.open?opened.add(i):opened.delete(i)}},true);
 $('#q').addEventListener('input',e=>{query=e.target.value;renderList()});
 applyLang();setTab('list');
-if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/German_irregular_verbs/sw.js', { scope: '/German_irregular_verbs/' })
+      .then(reg => console.log('SW зарегистрирован:', reg.scope))
+      .catch(err => console.error('Ошибка SW:', err));
+  });
+}
 </script>
 </body>
 </html>
