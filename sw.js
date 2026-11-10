@@ -1,7 +1,6 @@
-const C = 'verben-v15', F = [
+const C = 'verben-v16', F = [
   './',
   './index.html',
-  './style.css',
   './app.js',
   './manifest.webmanifest',
   './icon-192.png',
