@@ -1,582 +1,248 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Глаголы / Дієслова</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unregelmäßige Verben</title>
+<meta name="theme-color" content="#6b21a8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <style>
-:root{
-    --bg:#4b0082;
-    --container:#4b0082;
-    --text:#fff;
-    --accent:#eccc68;
-    --correct:#2ed573;
-    --incorrect:#ff4757;
-}
-
-body{
-    margin:0;
-    background:var(--bg);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    font-family:Arial, sans-serif;
-}
-
-.container{
-    width:100%;
-    max-width:600px;
-    background:var(--container);
-    padding:25px;
-    border-radius:18px;
-    color:#fff;
-    text-align:center;
-    position: relative;
-}
-
-/* СТИЛИ ДЛЯ КНОПОК ВЫБОРА ЯЗЫКА */
-.lang-screen-box {
-    padding: 20px 0;
-}
-.lang-screen-box label {
-    font-size: 20px;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 25px;
-}
-.btn-lang-choice {
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.hidden{display:none;}
-
-button{
-    width:100%;
-    padding:16px;
-    margin:10px 0;
-    border:none;
-    border-radius:16px;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    transition: background 0.2s;
-}
-
-.option{
-    background:#fff;
-    color:#000;
-}
-
-.correct{background:var(--correct)!important;color:#fff!important;}
-.incorrect{background:var(--incorrect)!important;color:#fff!important;}
-
-.btn-back {
-    background: transparent;
-    color: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    margin-top: 30px !important;
-    font-size: 14px;
-    padding: 10px;
-}
-.btn-back:hover {
-    color: #fff;
-    border-color: #fff;
-}
-
-.study-box, .practice-box {
-    margin: 20px 0 0 0;
-}
-
-.verb-form {
-    display: inline-block;
-    margin: 0 10px 10px 10px;
-    vertical-align: top;
-}
-
-.verb-label {
-    font-size: 16px; 
-    color: var(--accent);
-    display: block;
-    margin-bottom: 12px; 
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.main-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    display: block;
-}
-
-.transcription {
-    font-size: 13px;
-    font-weight: normal;
-    color: #fff;
-    display: block;
-    margin-top: 4px;
-}
-
-.btn-speak {
-    width: 60px !important;
-    height: 60px !important;
-    border-radius: 50% !important;
-    padding: 0 !important;
-    margin: 5px auto 15px auto !important;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px !important;
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-}
-.btn-speak:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-.missing-form {
-    color: var(--accent); 
-    border-bottom: 2px dashed var(--accent);
-    padding: 0 5px;
-}
-
-/* СЧЕТЧИК ЗВЕЗДОЧКИ */
-.score-badge {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 6px;
-    margin-bottom: 15px;
-}
-
-.score-number {
-    font-size: 26px;
-    font-weight: bold;
-    color: #ffffff;
-    line-height: 1;
-}
-
-.score-star {
-    font-size: 26px;
-    color: #ffca28; 
-    line-height: 1;
-}
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1b1d2a;--mut:#6b7086;--ac:#4f46e5;--ac2:#7c3aed;--bd:#e6e8f0;--ok:#16a34a;--st:#f59e0b;--sh:0 2px 10px rgba(30,30,80,.06)}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1119;--card:#191c28;--tx:#eceefa;--mut:#8f94ad;--bd:#262a3b;--sh:none}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body{padding:env(safe-area-inset-top) 0 0;height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+header{flex:none;background:var(--bg);padding:14px 16px 6px;width:100%;max-width:680px;margin:0 auto}
+h1{margin:0 0 10px;font-size:21px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;justify-content:space-between;gap:10px}
+h1>span:first-child{background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mut);font-size:13px;font-weight:600;margin:-4px 0 10px}
+input[type=search]{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:16px;outline:none;box-shadow:var(--sh)}
+input[type=search]:focus{border-color:var(--ac)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:7px 14px;border-radius:99px;border:1px solid var(--bd);background:var(--card);color:var(--mut);font-size:14px;font-weight:600;cursor:pointer}
+.chip.on{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-color:transparent}
+main{flex:1;min-height:0;overflow-y:auto;width:100%;max-width:680px;margin:0 auto;padding:6px 16px 16px}
+main.c{display:flex;flex-direction:column;justify-content:center;padding-bottom:28px}
+.v{background:var(--card);border-radius:18px;padding:14px 16px;margin:10px 0;box-shadow:var(--sh);border:1px solid var(--bd);transition:opacity .2s}
+.v.done{opacity:.55}
+.top{display:flex;align-items:center;gap:8px}
+.inf{font-size:20px;font-weight:800;flex:1;letter-spacing:-.01em}
+.n{color:var(--mut);font-size:12px;font-weight:600}
+.ib{border:0;background:transparent;font-size:20px;padding:4px 6px;cursor:pointer;color:var(--mut);line-height:1}
+.ib.on.s{color:var(--st)}.ib.on.k{color:var(--ok)}
+.forms{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:8px;margin-top:10px}
+.f small{display:block;color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.05em;font-weight:700}
+.f b{font-size:16px;font-weight:600}
+.aux{color:var(--ac);font-weight:700}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;background:rgba(79,70,229,.12);color:var(--ac);margin-left:6px}
+.empty{text-align:center;color:var(--mut);padding:50px 0}
+nav{flex:none;display:flex;background:var(--card);border-top:1px solid var(--bd);padding:8px 12px calc(8px + env(safe-area-inset-bottom));gap:8px;z-index:9}
+nav button{flex:1;border:0;background:transparent;color:var(--mut);font-size:12px;font-weight:700;padding:6px;border-radius:12px;cursor:pointer}
+nav button i{display:block;font-style:normal;font-size:22px}
+nav button.on{color:var(--ac);background:rgba(79,70,229,.1)}
+.deck{display:flex;flex-direction:column;align-items:center;width:100%}
+.prog{width:100%;height:6px;border-radius:9px;background:var(--bd);overflow:hidden;margin-bottom:8px}
+.prog div{height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width .3s}
+.cnt{color:var(--mut);font-size:13px;font-weight:600;margin-bottom:12px}
+.fc{width:100%;min-height:min(46vh,380px);border-radius:26px;background:linear-gradient(145deg,var(--ac),var(--ac2));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;text-align:center;cursor:pointer;box-shadow:0 14px 34px rgba(79,70,229,.35);user-select:none}
+.fc .big{font-size:36px;font-weight:800;letter-spacing:-.02em}
+.fc .hint{opacity:.75;font-size:14px}
+.fc .row{font-size:20px;font-weight:600}
+.fc .row small{display:block;opacity:.7;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.acts{display:flex;gap:12px;width:100%;margin-top:18px}
+.btn{flex:1;padding:15px;border-radius:16px;border:0;font-size:16px;font-weight:700;cursor:pointer;color:#fff}
+.btn.no{background:#ef4444}.btn.yes{background:var(--ok)}.btn.go{background:var(--ac)}
+.lang{display:flex;gap:4px;flex:none}.lang button{border:1px solid var(--bd);background:var(--card);color:var(--mut);font-weight:700;font-size:12px;padding:5px 9px;border-radius:9px;cursor:pointer}.lang button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.tr{color:var(--mut);font-size:14px;margin:2px 0 0 28px}.ipa{display:block;color:var(--mut);font-size:11px;font-weight:400;margin-top:1px;word-break:break-word}
+.fc .ipa{color:#fff;opacity:.7}.fc .tr{margin:0;color:#fff;opacity:.85;font-size:17px}
+.q{width:100%;display:flex;flex-direction:column}.q .row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:8px 0}.q .cell{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:10px 12px;min-width:30%;box-shadow:var(--sh)}
+.q .cell small{display:block;color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.05em;font-weight:700}.q .cell b{font-size:17px}.q .miss{border:2px dashed var(--ac)}.q .miss b{color:var(--ac)}
+.opt{display:block;width:100%;padding:15px;margin:9px 0;border-radius:16px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:18px;font-weight:700;cursor:pointer}
+.opt.ok{background:var(--ok);color:#fff;border-color:var(--ok)}.opt.bad{background:#ef4444;color:#fff;border-color:#ef4444}
+.score{text-align:right;font-weight:800;font-size:20px;color:var(--st)}
+#ls{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:linear-gradient(160deg,#4f46e5,#6b21a8);color:#fff;text-align:center}
+#ls img{width:96px;height:96px;border-radius:24px;box-shadow:0 12px 30px rgba(0,0,0,.3);margin-bottom:6px}
+#ls h2{margin:0;font-size:26px;font-weight:800;letter-spacing:-.02em}#ls p{margin:0 0 14px;opacity:.85;font-size:16px}
+#ls button{width:100%;max-width:340px;padding:18px;border-radius:18px;border:0;background:#fff;color:#4c1d95;font-size:20px;font-weight:800;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+#ls button:active{transform:scale(.98)}
+.ttl{font-size:16px;font-weight:700;flex:1;color:var(--tx)}
+.f b{overflow-wrap:anywhere}
+.forms{grid-template-columns:1fr 1fr 1.25fr}
+.f:first-child b{font-weight:800}
+details{margin-top:12px;border-top:1px dashed var(--bd);padding-top:10px}
+summary{cursor:pointer;color:var(--ac);font-weight:700;font-size:14px;list-style:none;display:flex;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"▾";margin-left:auto;font-size:16px;transition:transform .2s}
+details[open] summary::after{transform:rotate(180deg)}
+.pv{font-size:19px;font-weight:700;margin-top:8px}
+.forms{grid-template-columns:1fr 1fr 1.3fr}.f b{overflow-wrap:anywhere}.f b.i{color:var(--ac)}
+details{margin-top:12px;border-top:1px dashed var(--bd);padding-top:10px}
+summary{cursor:pointer;color:var(--ac);font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}summary::after{content:'▾';transition:transform .2s}details[open] summary::after{transform:rotate(180deg)}
+.pr{margin:10px 0 6px}.pr small{display:block;color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.05em;font-weight:700}.pr b{font-size:17px}
+.ex{margin-top:8px;padding:9px 12px;border-left:3px solid var(--ac);background:rgba(79,70,229,.08);border-radius:0 12px 12px 0;font-style:italic;font-size:15px}
 </style>
 </head>
-
 <body>
+<header>
+  <h1><span>Unregelmäßige Verben</span></h1>
+  <div class="sub" id="sub"></div>
+  <input type="search" id="q" placeholder="Поиск: gehen, ging, gegangen…" autocomplete="off">
+  <div class="chips" id="chips"></div>
+</header>
+<main id="app"></main>
+<nav>
+  <button data-t="list" class="on"><i>📖</i><span data-s="list"></span></button>
+  <button data-t="train"><i>🎴</i><span data-s="train"></span></button>
+  <button data-t="quiz"><i>🎯</i><span data-s="quiz"></span></button>
+</nav>
 
-<div class="container">
-
-    <div id="langScreen" class="lang-screen-box">
-        <label id="langTitle">Выберите язык / Оберіть мову</label>
-        
-        <button id="btnLangRu" class="btn-lang-choice" onclick="loadDatabaseAndConfirm('rus')">Русский</button>
-        <button id="btnLangUk" class="btn-lang-choice" onclick="loadDatabaseAndConfirm('ukr')">Українська</button>
-    </div>
-
-    <div id="menu" class="hidden">
-        <button id="btnMenuStudy" onclick="startStudy()">Изучение</button>
-        <button id="btnMenuPractice" onclick="startPractice()">Практика</button>
-    </div>
-
-    <div id="study" class="hidden">
-        <div id="studyText" class="study-box"></div>
-        
-        <button onclick="speakStudy()" class="btn-speak">🔊</button>
-        
-        <button id="btnStudyNext" onclick="nextStudy()">Дальше</button>
-        <button id="btnStudyBack" onclick="backToMenu()" class="btn-back">⬅ Назад в меню</button>
-    </div>
-
-    <div id="practice" class="hidden">
-        <div class="score-badge">
-            <span id="liveScore" class="score-number">0</span>
-            <span class="score-star">★</span>
-        </div>
-
-        <div id="practiceText" class="practice-box"></div>
-        
-        <button onclick="speakPractice()" class="btn-speak">🔊</button>
-        
-        <div id="answers"></div>
-        <button id="btnPracticeBack" onclick="backToMenu()" class="btn-back">⬅ Назад в меню</button>
-    </div>
-
+<div id="ls">
+  <img src="icon-192.png" alt="">
+  <h2>Unregelmäßige Verben</h2>
+  <p>Выберите язык / Оберіть мову</p>
+  <button data-l="ru">Русский</button>
+  <button data-l="uk">Українська</button>
 </div>
-
+<script src="verbs-data.js"></script>
 <script>
-/* ===== ЯЗЫКОВОЙ ПАКЕТ ИНТЕРФЕЙСА ===== */
-let currentLang = "rus";
-
-const translations = {
-    rus: {
-        study: "Изучение",
-        practice: "Практика",
-        next: "Дальше",
-        back: "⬅ Назад в меню",
-        translationLabel: "Перевод",
-        statusReady: "Готово",
-        resultLabel: "Результат",
-        points: "очков из"
-    },
-    ukr: {
-        study: "Вивчення",
-        practice: "Практика",
-        next: "Далі",
-        back: "⬅ Назад до меню",
-        translationLabel: "Переклад",
-        statusReady: "Готово",
-        resultLabel: "Результат",
-        points: "балів з"
-    }
-};
-
-// Динамическое подключение выбранного js-файла базы данных
-function loadDatabaseAndConfirm(lang) {
-    currentLang = lang;
-    
-    const oldScript = document.getElementById("verbsDbScript");
-    if (oldScript) oldScript.remove();
-
-    const script = document.createElement("script");
-    script.id = "verbsDbScript";
-    script.src = `verbs_${lang}.js`;
-    
-    script.onload = function() {
-        updateInterfaceTexts();
-        show("menu");
-    };
-    
-    script.onerror = function() {
-        alert("Ошибка загрузки базы данных! Проверьте наличие файла " + script.src);
-    };
-
-    document.body.appendChild(script);
+const MODAL=['dürfen','können','mögen','müssen','sollen','wollen'];
+const V=DATA.map((d,i)=>({id:i+1,inf:d[0],pr:d[1],pt:d[2],a:d[3],pp:d[4],tr:{ru:d[5],uk:d[6]},ex:(d[7]||'').split('|')}));
+const AUX={h:'hat',s:'ist',hs:'hat / ist'};
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let fav=new Set(store.get('fav')),known=new Set(store.get('known'));
+let lang='ru';
+const S={ru:{list:'Список',train:'Карточки',quiz:'Практика',ph:'Поиск: gehen, ging, gegangen, идти…',learned:'выучено',more:'Präsens и пример',none:'Ничего не найдено 🤷',empty:'В колоде пусто.<br>Выберите другой фильтр на вкладке «Список».',hint:'Вспомните 3 формы и перевод · нажмите, чтобы проверить',again:'Ещё раз',done:'Готово!',cards:'Карточек пройдено',redo:'Повторить',know:'Знаю',next:'Дальше',res:'Результат',pts:'очков из',f:['Все','★ Избранное','Не выучено','haben','sein','haben / sein','Модальные']},
+uk:{list:'Список',train:'Картки',quiz:'Практика',ph:'Пошук: gehen, ging, gegangen, йти…',learned:'вивчено',more:'Präsens і приклад',none:'Нічого не знайдено 🤷',empty:'У колоді порожньо.<br>Оберіть інший фільтр на вкладці «Список».',hint:'Пригадайте 3 форми та переклад · натисніть, щоб перевірити',again:'Ще раз',done:'Готово!',cards:'Карток пройдено',redo:'Повторити',know:'Знаю',next:'Далі',res:'Результат',pts:'балів з',f:['Усі','★ Обране','Не вивчено','haben','sein','haben / sein','Модальні']}};
+const T=()=>S[lang];
+const opened=new Set();
+let tab='list',flt='all',query='',deck=[],di=0,flip=false;
+const FK=['all','fav','todo','h','s','hs','mod'];
+const $=s=>document.querySelector(s);
+const norm=s=>s.toLowerCase().replace(/ä/g,'a').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ß/g,'ss');
+function filtered(){
+  const q=norm(query.trim());
+  return V.filter(v=>{
+    if(flt==='fav'&&!fav.has(v.id))return false;
+    if(flt==='todo'&&known.has(v.id))return false;
+    if((flt==='h'||flt==='s'||flt==='hs')&&v.a!==flt)return false;
+    if(flt==='mod'&&!MODAL.includes(v.inf))return false;
+    return !q||norm([v.inf,v.pr,v.pt,v.pp,v.tr[lang]].join(' ')).includes(q);
+  });
 }
-
-function updateInterfaceTexts() {
-    const t = translations[currentLang];
-    document.getElementById("btnMenuStudy").innerText = t.study;
-    document.getElementById("btnMenuPractice").innerText = t.practice;
-    document.getElementById("btnStudyNext").innerText = t.next;
-    document.getElementById("btnStudyBack").innerText = t.back;
-    document.getElementById("btnPracticeBack").innerText = t.back;
+function speak(t){try{const u=new SpeechSynthesisUtterance(t.replace(/\//g,', '));u.lang='de-DE';const vs=speechSynthesis.getVoices().filter(x=>x.lang.startsWith('de'));u.voice=vs.find(x=>/Google|Natural|Premium|Katja|Conrad|Marlene|Siri|Anna/.test(x.name))||vs[0]||null;u.rate=.88;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+const say=v=>speak(`${v.inf}, ${v.pt}, ${v.pp}`);
+function perf(v){return AUX[v.a]+' '+v.pp}
+function renderChips(){
+  $('#chips').innerHTML=FK.map((k,i)=>`<button class="chip ${flt===k?'on':''}" data-f="${k}">${T().f[i]}</button>`).join('');
 }
-
-/* ===== НАВИГАЦИЯ МЕЖДУ ЭКРАНАМИ ===== */
-function show(id){
-    document.getElementById("langScreen").classList.add("hidden");
-    document.getElementById("menu").classList.add("hidden");
-    document.getElementById("study").classList.add("hidden");
-    document.getElementById("practice").classList.add("hidden");
-    document.getElementById(id).classList.remove("hidden");
+function renderList(){
+  const L=filtered();
+  $('#sub').textContent=`${known.size}/${V.length} ${T().learned}`;
+  $('#app').innerHTML=L.length?L.map(v=>`
+  <div class="v ${known.has(v.id)?'done':''}">
+    <div class="top">
+      <span class="n">${v.id}</span><span class="ttl">${v.tr[lang]}</span>
+      <button class="ib" data-sp="${v.id}" aria-label="Произнести">🔊</button>
+      <button class="ib s ${fav.has(v.id)?'on':''}" data-fav="${v.id}" aria-label="Избранное">${fav.has(v.id)?'★':'☆'}</button>
+      <button class="ib k ${known.has(v.id)?'on':''}" data-kn="${v.id}" aria-label="Выучено">✔</button>
+    </div>
+    <div class="forms">
+      <div class="f"><small>Infinitiv</small><b class="i">${v.inf}</b></div>
+      <div class="f"><small>Präteritum</small><b>${v.pt}</b></div>
+      <div class="f"><small>Perfekt</small><b><span class="aux">${AUX[v.a]}</span> ${v.pp}</b></div>
+    </div>
+    <details data-id="${v.id}" ${opened.has(v.id)?'open':''}><summary>${T().more}</summary>
+      <div class="pr"><small>Präsens · er/sie/es</small><b>${v.pr}</b></div>
+      ${v.ex.map(x=>`<div class="ex">${x}</div>`).join('')}
+    </details>
+  </div>`).join(''):`<div class="empty">${T().none}</div>`;
 }
-
-function backToMenu() {
-    if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-    }
-    show("menu");
+function startDeck(){
+  deck=filtered().map(v=>v.id);
+  for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}
+  di=0;flip=false;renderTrain();
 }
-
-/* ===== СИСТЕМА ОЗВУЧКИLEKTIONEN TRAINER A1 (WEB SPEECH API) ===== */
-let selectedVoice = null;
-
-function initGermanVoice() {
-    if (!('speechSynthesis' in window)) return;
-    const voices = window.speechSynthesis.getVoices();
-    const germanVoices = voices.filter(v => v.lang.startsWith('de'));
-    
-    if (germanVoices.length > 0) {
-        // Фильтруем голоса точно так же, как в Lektionen Trainer A1
-        selectedVoice = germanVoices.find(v => 
-            v.name.includes('Google') || 
-            v.name.includes('Natural') || 
-            v.name.includes('Premium') ||
-            v.name.includes('Katja') ||
-            v.name.includes('Conrad') ||
-            v.name.includes('Marlene') ||
-            v.name.includes('Siri') ||
-            v.name.includes('Clara') ||
-            v.name.includes('Viktor')
-        ) || germanVoices[0];
-    }
+function renderTrain(){
+  const el=$('#app');
+  if(!deck.length){el.innerHTML=`<div class="empty">${T().empty}</div>`;return}
+  if(di>=deck.length){el.innerHTML=`<div class="deck"><div class="fc" style="cursor:default"><div class="big">🎉 ${T().done}</div><div class="hint">${T().cards}: ${deck.length}</div></div><div class="acts"><button class="btn go" id="again">${T().again}</button></div></div>`;return}
+  const v=V[deck[di]-1];
+  el.innerHTML=`<div class="deck">
+    <div class="prog"><div style="width:${di/deck.length*100}%"></div></div>
+    <div class="cnt">${di+1} / ${deck.length}</div>
+    <div class="fc" id="fc">${flip?
+      `<div class="big">${v.inf}</div><div class="tr">${v.tr[lang]}</div>
+       <div class="row"><small>Präteritum</small>${v.pt}</div>
+       <div class="row"><small>Perfekt</small>${perf(v)}</div>`:
+      `<div class="big">${v.inf}</div><div class="hint">${T().hint}</div>`}
+    </div>
+    ${flip?`<div class="acts"><button class="btn no" data-a="0">${T().redo}</button><button class="btn yes" data-a="1">${T().know}</button></div>`:''}
+  </div>`;
 }
-
-if ('speechSynthesis' in window) {
-    window.speechSynthesis.onvoiceschanged = initGermanVoice;
-    initGermanVoice();
+let qd=[],qi=0,qs=0,qa=null;
+function fakes(c,type,v){
+  const p=c.split('/')[0].trim(),F=new Set();
+  if(type===0){if(p.endsWith('en')){F.add(p.slice(0,-2)+'et');F.add(p.slice(0,-2)+'st')}else if(p.endsWith('n')){F.add(p.slice(0,-1)+'t');F.add(p.slice(0,-1)+'st')}}
+  else if(type===1){const b=v.inf.replace('sich ','').slice(0,-2);if(!p.endsWith('te')){F.add(b+'te');F.add(b+'ete')}F.add(p+'st');['a','o','i','u','ie'].forEach(x=>{const r=p.replace(/[aeiouäöü]+/,x);if(r!==p)F.add(r)})}
+  else{const pp=v.pp.split('/')[0];[pp.endsWith('en')?pp.slice(0,-2)+'t':pp+'en',pp.startsWith('ge')?pp.slice(2):'ge'+pp].forEach(x=>F.add(AUX[v.a]+' '+x));if(v.a==='h')F.add('ist '+pp);if(v.a==='s')F.add('hat '+pp)}
+  F.delete(c);F.delete(p);const a=[...F].filter(x=>x&&x!==c).sort(()=>Math.random()-.5);
+  while(a.length<2)a.push(p+(a.length?'st':'t'));return a.slice(0,2);
 }
-
-function playCurrentAudio(v1, v2, v3) {
-    if (!('speechSynthesis' in window)) return;
-
-    window.speechSynthesis.cancel();
-
-    // Формируем текст с паузами между формами
-    let textToSpeak = `${v1}, ${v2}, ${v3}`.replace(/[∙.]/g, '').replace(/\//g, ', ');
-
-    const utterance = new SpeechSynthesisUtterance(textToSpeak);
-    utterance.lang = 'de-DE';
-
-    if (selectedVoice) {
-        utterance.voice = selectedVoice;
-    }
-
-    utterance.rate = 0.88; // Скорость из Lektionen Trainer A1
-    utterance.pitch = 1.0;
-
-    window.speechSynthesis.speak(utterance);
+function startQuiz(){qd=V.map((_,i)=>i).sort(()=>Math.random()-.5);qi=0;qs=0;renderQuiz()}
+function renderQuiz(){
+  const el=$('#app');
+  if(qi>=qd.length){el.innerHTML=`<div class="deck"><div class="fc" style="cursor:default"><div class="big">🎉 ${T().done}</div><div class="row"><small>${T().res}</small>${qs} ${T().pts} ${qd.length*2}</div></div><div class="acts"><button class="btn go" id="qagain">${T().again}</button></div></div>`;return}
+  const v=V[qd[qi]],h=Math.floor(Math.random()*3),forms=[v.inf,v.pt,perf(v)],lab=['Infinitiv','Präteritum','Partizip II'];
+  const c=forms[h],opts=[c,...fakes(c,h,v)].sort(()=>Math.random()-.5);qa={v,h,c};
+  el.innerHTML=`<div class="q"><div class="score">${qs} ★</div><div class="prog"><div style="width:${qi/qd.length*100}%"></div></div>
+  <div class="row">${forms.map((f,i)=>`<div class="cell ${i===h?'miss':''}"><small>${lab[i]}</small><b>${i===h?'?':f}</b></div>`).join('')}</div>
+  <div class="tr" style="margin:6px 0 12px;text-align:center">${v.tr[lang]}</div>
+  ${opts.map(o=>`<button class="opt" data-o="${o.replace(/"/g,'&quot;')}">${o}</button>`).join('')}<div id="qn"></div></div>`;
 }
-
-function triggerVoice(v1, v2, v3) {
-    playCurrentAudio(v1, v2, v3);
+function answer(b){
+  const {v,c}=qa;document.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(x.dataset.o===c)x.classList.add('ok')});
+  if(b.dataset.o===c)qs+=2;else b.classList.add('bad');
+  say(v);$('#qn').innerHTML=`<button class="btn go" id="qnext" style="width:100%">${T().next}</button>`;
 }
-
-/* ===== РЕЖИМ: ИЗУЧЕНИЕ ===== */
-let studyIndex=0;
-let shuffledStudyVerbs = [];
-
-function startStudy(){
-    show("study");
-    studyIndex=0;
-    
-    shuffledStudyVerbs = [...verbsDatabase];
-    for (let i = shuffledStudyVerbs.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffledStudyVerbs[i], shuffledStudyVerbs[j]] = [shuffledStudyVerbs[j], shuffledStudyVerbs[i]];
-    }
-    
-    showStudy();
+function applyLang(){
+  document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
+  document.querySelectorAll('[data-s]').forEach(e=>e.textContent=T()[e.dataset.s]);
+  $('#q').placeholder=T().ph;document.documentElement.lang=lang;renderChips();
 }
-
-function showStudy(){
-    const v=shuffledStudyVerbs[studyIndex];
-    const t = translations[currentLang];
-
-    document.getElementById("studyText").innerHTML = `
-        <div style="margin-bottom: 10px;">
-            <div class="verb-form">
-                <span class="verb-label">Infinitiv</span>
-                <span class="main-text">${v.v1}</span>
-                <span class="transcription">${v.t1}</span>
-            </div>
-            <div class="verb-form">
-                <span class="verb-label">Präteritum</span>
-                <span class="main-text">${v.v2}</span>
-                <span class="transcription">${v.t2}</span>
-            </div>
-            <div class="verb-form">
-                <span class="verb-label">Partizip II</span>
-                <span class="main-text">${v.v3}</span>
-                <span class="transcription">${v.t3}</span>
-            </div>
-        </div>
-        <div>
-            <div class="verb-form"><span class="verb-label">${t.translationLabel}</span><span class="main-text">${v.translation}</span></div>
-        </div>
-    `;
-    triggerVoice(v.v1, v.v2, v.v3);
+function setTab(t){
+  tab=t;
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+  $('#q').style.display=t==='list'?'':'none';$('#chips').style.display=t==='quiz'?'none':'';$('#sub').style.display=t==='list'?'':'none';$('#app').classList.toggle('c',t!=='list');$('#app').scrollTop=0;
+  t==='list'?renderList():t==='train'?startDeck():startQuiz();
 }
-
-function nextStudy(){
-    studyIndex++;
-    if(studyIndex>=shuffledStudyVerbs.length) studyIndex=0;
-    showStudy();
-}
-
-function speakStudy(){
-    const v=shuffledStudyVerbs[studyIndex];
-    triggerVoice(v.v1, v.v2, v.v3);
-}
-
-/* ===== РЕЖИМ: ПРАКТИКА ===== */
-let practiceIndex=0;
-let score=0;
-let shuffledVerbs = [];
-let correctAnswer = "";
-
-function startPractice(){
-    show("practice");
-    practiceIndex=0;
-    score=0;
-    document.getElementById("liveScore").innerText = score;
-    
-    shuffledVerbs = [...verbsDatabase];
-    for (let i = shuffledVerbs.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffledVerbs[i], shuffledVerbs[j]] = [shuffledVerbs[j], shuffledVerbs[i]];
-    }
-    nextQuestion();
-}
-
-function generateFakeOptions(correct, type, baseVerb) {
-    let fakes = new Set();
-    let primary = correct.split('/')[0].trim();
-
-    if (type === "v1") {
-        if (primary.endsWith("en")) {
-            fakes.add(primary.slice(0, -2) + "et");
-            fakes.add(primary.slice(0, -2) + "st");
-        } else if (primary.endsWith("n")) {
-            fakes.add(primary.slice(0, -1) + "t");
-            fakes.add(primary.slice(0, -1) + "st");
-        }
-    } 
-    else if (type === "v2") {
-        if (!primary.endsWith("te")) {
-            fakes.add(baseVerb.v1.slice(0, -2) + "te");
-            fakes.add(baseVerb.v1.slice(0, -2) + "ete");
-        }
-        fakes.add(primary + "st");
-        let vowels = ["a", "o", "i", "u", "ie"];
-        vowels.forEach(v => {
-            let replaced = primary.replace(/[aeiouäöü]+/g, v);
-            if (replaced !== primary) fakes.add(replaced);
-        });
-    } 
-    else if (type === "v3") {
-        if (primary.endsWith("en")) {
-            fakes.add(primary.slice(0, -2) + "t");
-            fakes.add(primary.slice(0, -2) + "et");
-        } else if (primary.endsWith("t")) {
-            fakes.add(primary.slice(0, -1) + "en");
-        }
-        if (primary.startsWith("ge")) {
-            fakes.add(primary.substring(2));
-        } else {
-            fakes.add("ge" + primary);
-        }
-    }
-
-    fakes.delete(correct);
-    fakes.delete(primary);
-
-    let arrayFakes = Array.from(fakes).filter(item => item.length > 0);
-
-    while (arrayFakes.length < 2) {
-        let fake = primary + (arrayFakes.length === 0 ? "t" : "st");
-        if (fake !== primary && !arrayFakes.includes(fake)) {
-            arrayFakes.push(fake);
-        }
-    }
-
-    return arrayFakes.slice(0, 2);
-}
-
-function nextQuestion(){
-    const box = document.getElementById("answers");
-    const speakBtn = document.querySelector("#practice .btn-speak");
-    const badge = document.querySelector(".score-badge");
-    const t = translations[currentLang];
-
-    if(practiceIndex >= shuffledVerbs.length){
-        const maxScore = shuffledVerbs.length * 2;
-        if(badge) badge.style.display = "none";
-        document.getElementById("practiceText").innerHTML = `
-            <div class="verb-form"><span class="verb-label">${t.resultLabel}</span><span class="main-text">${t.statusReady}</span></div><br>
-            <div class="verb-form"><span class="verb-label">${t.resultLabel}</span><span class="main-text">${score} ${t.points} ${maxScore}</span></div>
-        `;
-        box.innerHTML = "";
-        if(speakBtn) speakBtn.style.display = "none";
-        return;
-    }
-    
-    if(badge) badge.style.display = "flex";
-    if(speakBtn) speakBtn.style.display = "flex";
-
-    const q = shuffledVerbs[practiceIndex];
-    const hiddenFormType = Math.floor(Math.random() * 3);
-    
-    let inf = `<span class="main-text">${q.v1}</span><span class="transcription">${q.t1}</span>`;
-    let v2 = `<span class="main-text">${q.v2}</span><span class="transcription">${q.t2}</span>`;
-    let p2 = `<span class="main-text">${q.v3}</span><span class="transcription">${q.t3}</span>`;
-    let wrongType = "v2";
-
-    if(hiddenFormType === 0) {
-        inf = `<span id="targetForm" class="main-text missing-form">Infinitiv</span><span id="targetTrans" class="transcription">[...]</span>`;
-        correctAnswer = q.v1;
-        wrongType = "v1";
-    } else if(hiddenFormType === 1) {
-        v2 = `<span id="targetForm" class="main-text missing-form">Präteritum</span><span id="targetTrans" class="transcription">[...]</span>`;
-        correctAnswer = q.v2;
-        wrongType = "v2";
-    } else {
-        p2 = `<span id="targetForm" class="main-text missing-form">Partizip II</span><span id="targetTrans" class="transcription">[...]</span>`;
-        correctAnswer = q.v3;
-        wrongType = "v3";
-    }
-
-    document.getElementById("practiceText").innerHTML = `
-        <div style="margin-bottom: 10px;">
-            <div class="verb-form"><span class="verb-label">Infinitiv</span>${inf}</div>
-            <div class="verb-form"><span class="verb-label">Präteritum</span>${v2}</div>
-            <div class="verb-form"><span class="verb-label">Partizip II</span>${p2}</div>
-        </div>
-        <div>
-            <div class="verb-form"><span class="verb-label">${t.translationLabel}</span><span class="main-text">${q.translation}</span></div>
-        </div>
-    `;
-
-    let wrongOptions = generateFakeOptions(correctAnswer, wrongType, q);
-    const options = [correctAnswer, ...wrongOptions].sort(() => Math.random() - 0.5);
-    box.innerHTML = "";
-
-    options.forEach(o => {
-        const b = document.createElement("button");
-        b.className = "option";
-        b.innerText = o;
-
-        b.onclick = () => {
-            const allButtons = box.querySelectorAll('button');
-            allButtons.forEach(btn => btn.style.pointerEvents = 'none');
-
-            const targetWordEl = document.getElementById("targetForm");
-            const targetTransEl = document.getElementById("targetTrans");
-            
-            if (targetWordEl && targetTransEl) {
-                targetWordEl.innerText = correctAnswer;
-                targetWordEl.classList.remove("missing-form");
-                
-                if (hiddenFormType === 0) targetTransEl.innerText = q.t1;
-                else if (hiddenFormType === 1) targetTransEl.innerText = q.t2;
-                else targetTransEl.innerText = q.t3;
-            }
-
-            if(o === correctAnswer) {
-                b.classList.add("correct");
-                score += 2;
-                document.getElementById("liveScore").innerText = score;
-            } else {
-                b.classList.add("incorrect");
-                allButtons.forEach(btn => {
-                    if(btn.innerText === correctAnswer) btn.classList.add("correct");
-                });
-            }
-
-            triggerVoice(q.v1, q.v2, q.v3);
-
-            setTimeout(() => {
-                practiceIndex++;
-                nextQuestion();
-            }, 2500);
-        };
-
-        box.appendChild(b);
-    });
-}
-
-function speakPractice(){
-    const q = shuffledVerbs[practiceIndex];
-    triggerVoice(q.v1, q.v2, q.v3);
-}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button,#fc');if(!t)return;
+  if(t.dataset.t)return setTab(t.dataset.t);
+  if(t.dataset.l){lang=t.dataset.l;$('#ls').style.display='none';applyLang();return setTab('list')}
+  if(t.dataset.o!==undefined)return answer(t);
+  if(t.id==='qnext'){qi++;return renderQuiz()}
+  if(t.id==='qagain')return startQuiz();
+  if(t.dataset.f){flt=t.dataset.f;renderChips();return tab==='list'?renderList():startDeck()}
+  if(t.dataset.sp)return say(V[t.dataset.sp-1]);
+  if(t.dataset.fav){const id=+t.dataset.fav;fav.has(id)?fav.delete(id):fav.add(id);store.set('fav',[...fav]);return renderList()}
+  if(t.dataset.kn){const id=+t.dataset.kn;known.has(id)?known.delete(id):known.add(id);store.set('known',[...known]);return renderList()}
+  if(t.id==='fc'){flip=!flip;if(flip)say(V[deck[di]-1]);return renderTrain()}
+  if(t.id==='again')return startDeck();
+  if(t.dataset.a!==undefined){
+    const id=deck[di];
+    if(t.dataset.a==='1')known.add(id);else known.delete(id);
+    store.set('known',[...known]);di++;flip=false;renderTrain();
+  }
+});
+document.addEventListener('toggle',e=>{const d=e.target;if(d.tagName==='DETAILS'&&d.dataset.id){const i=+d.dataset.id;d.open?opened.add(i):opened.delete(i)}},true);
+$('#q').addEventListener('input',e=>{query=e.target.value;renderList()});
+applyLang();setTab('list');
+if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script>
-
 </body>
 </html>
