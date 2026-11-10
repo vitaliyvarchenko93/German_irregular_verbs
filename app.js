@@ -207,23 +207,6 @@ function answer(b) {
     document.querySelectorAll('.opt').forEach(x => { if (x.dataset.o === c) x.classList.add('ok'); });
   }
   say(v);
-  $('#qn').innerHTML = `<button class="btn go" id="qnext" style="width:100%">${T().next}</button>`;
-}
-
-  const targetCell = document.querySelector('.cell.miss');
-  if (isCorrect) {
-    qs += 2;
-    b.classList.add('ok');
-    if (targetCell) {
-      targetCell.classList.add('filled');
-      const bEl = targetCell.querySelector('b');
-      if (bEl) bEl.textContent = c;
-    }
-  } else {
-    b.classList.add('bad');
-    document.querySelectorAll('.opt').forEach(x => { if (x.dataset.o === c) x.classList.add('ok'); });
-  }
-  say(v);
   $('#qn').innerHTML = `<button class="btn go" id="qnext" style="width:100%;margin-top:6px">${T().next}</button>`;
 }
 
