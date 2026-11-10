@@ -1,8 +1,9 @@
 {
+  "id": "german-unregelmaessige-verben-pwa",
   "name": "Unregelmäßige Verben",
   "short_name": "Verben",
   "description": "150 неправильных глаголов немецкого языка: формы, поиск, карточки",
-  "start_url": "./index.html",
+  "start_url": "./index.html?source=pwa",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
