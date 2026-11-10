@@ -196,9 +196,13 @@ function fakes(c,type,v){
 function startQuiz(){qd=V.map((_,i)=>i).sort(()=>Math.random()-.5);qi=0;qs=0;renderQuiz()}
 function renderQuiz(){
   const el=$('#app');
-  if(qi>=qd.length){el.innerHTML=`<div class="deck"><div class="fc" style="cursor:default"><div class="big">🎉 ${T().done}</div><div class="row"><small>${T().res}</small>${qs} ${T().pts} ${qd.length*2}</div></div><div class="acts"><button class="btn go" id="qagain">${T().again}</button></div></div>`;return}
-  const v=V[qd[qi]],h=Math.floor(Math.random()*3),forms=[v.inf,v.pt,perf(v)],lab=['Infinitiv','Präteritum','Partizip II'];
-  const c=forms[h],opts=[c,...fakes(c,h,v)].sort(()=>Math.random()-.5);qa={v,h,c};
+  if(qi>=qd.length){
+    el.innerHTML=`<div class="deck"><div class="fc" style="cursor:default"><div class="big">🎉 ${T().done}</div><div class="row"><small>${T().res}</small>${qs} ${T().pts} ${qd.length*2}</div></div><div class="acts"><button class="btn go" id="qagain">${T().again}</button></div></div>`;
+    return;
+  }
+  const v=V[qd[qi]], h=Math.random()<.5?1:2, forms=[v.inf,v.pt,perf(v)], lab=['Infinitiv','Präteritum','Partizip II'];
+  const c=forms[h], opts=[c,...fakes(c,h,v)].sort(()=>Math.random()-.5);
+  qa={v,h,c};
   el.innerHTML=`<div class="q"><div class="score">${qs} ★</div><div class="prog"><div style="width:${qi/qd.length*100}%"></div></div>
   <div class="row">${forms.map((f,i)=>`<div class="cell ${i===h?'miss':''}"><small>${lab[i]}</small><b>${i===h?'?':f}</b></div>`).join('')}</div>
   <div class="tr" style="margin:6px 0 12px;text-align:center">${v.tr[lang]}</div>
