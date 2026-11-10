@@ -368,9 +368,38 @@ function renderQuiz(){
   ${opts.map(o=>`<button class="opt" data-o="${o.replace(/"/g,'&quot;')}">${o}</button>`).join('')}<div id="qn"></div></div>`;
 }
 function answer(b){
-  const {v,c}=qa;document.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(x.dataset.o===c)x.classList.add('ok')});
-  if(b.dataset.o===c)qs+=2;else b.classList.add('bad');
-  say(v);$('#qn').innerHTML=`<button class="btn go" id="qnext" style="width:100%">${T().next}</button>`;
+  const {v,c}=qa, isCorrect=b.dataset.o===c;
+  document.querySelectorAll('.opt').forEach(x=>x.disabled=true);
+  
+  if(isCorrect){
+    qs+=2;
+    b.classList.add('ok');
+    
+    // Ищем ячейку пропуска по точному классу
+    const targetCell=document.querySelector('.cell.miss');
+    if(targetCell){
+      const bR=b.getBoundingClientRect(), tR=targetCell.getBoundingClientRect();
+      const dX=(tR.left+tR.width/2)-(bR.left+bR.width/2);
+      const dY=(tR.top+tR.height/2)-(bR.top+bR.height/2);
+      
+      // Делаем элемент поверх всех слоев и анимируем в пропуск
+      b.style.zIndex='99';
+      b.style.transform=`translate(${dX}px, ${dY}px) scale(0.85)`;
+      
+      setTimeout(()=>{
+        const bEl=targetCell.querySelector('b');
+        if(bEl) bEl.textContent=c;
+        targetCell.style.borderStyle='solid';
+        targetCell.style.borderColor='var(--ok)';
+        b.style.opacity='0';
+      },350);
+    }
+  }else{
+    b.classList.add('bad');
+    document.querySelectorAll('.opt').forEach(x=>{if(x.dataset.o===c)x.classList.add('ok')});
+  }
+  say(v);
+  $('#qn').innerHTML=`<button class="btn go" id="qnext" style="width:100%;margin-top:12px">${T().next}</button>`;
 }
 function applyLang(){
   document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
