@@ -25,8 +25,8 @@ input[type=search]:focus{border-color:var(--ac)}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:none;padding:7px 14px;border-radius:99px;border:1px solid var(--bd);background:var(--card);color:var(--mut);font-size:14px;font-weight:600;cursor:pointer}
 .chip.on{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-color:transparent}
-main{flex:1;min-height:0;overflow-y:auto;width:100%;max-width:680px;margin:0 auto;padding:6px 16px 16px}
-main.c{display:flex;flex-direction:column;justify-content:center;padding-bottom:28px}
+main{flex:1;min-height:0;overflow-y:auto;width:100%;max-width:680px;margin:0 auto;padding:6px 16px 16px;display:flex;flex-direction:column}
+main.c{padding-bottom:16px}
 .v{background:var(--card);border-radius:18px;padding:14px 16px;margin:10px 0;box-shadow:var(--sh);border:1px solid var(--bd);transition:opacity .2s}
 .v.done{opacity:.55}
 .top{display:flex;align-items:center;gap:8px}
@@ -44,8 +44,8 @@ nav{flex:none;display:flex;background:var(--card);border-top:1px solid var(--bd)
 nav button{flex:1;border:0;background:transparent;color:var(--mut);font-size:12px;font-weight:700;padding:6px;border-radius:12px;cursor:pointer}
 nav button i{display:block;font-style:normal;font-size:22px}
 nav button.on{color:var(--ac);background:rgba(79,70,229,.1)}
-.deck{display:flex;flex-direction:column;align-items:center;width:100%}
-.prog{width:100%;height:6px;border-radius:99px;background:var(--bd);overflow:hidden;margin-bottom:8px}
+.deck{display:flex;flex-direction:column;align-items:center;width:100%;flex:1;justify-content:center}
+.prog{width:100%;height:8px;border-radius:99px;background:var(--bd);overflow:hidden;margin-bottom:12px}
 .prog div{height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width .3s}
 .cnt{color:var(--mut);font-size:13px;font-weight:600;margin-bottom:12px}
 .fc{width:100%;min-height:min(46vh,380px);border-radius:26px;background:linear-gradient(145deg,var(--ac),var(--ac2));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;text-align:center;cursor:pointer;box-shadow:0 14px 34px rgba(79,70,229,.35);user-select:none}
@@ -54,17 +54,25 @@ nav button.on{color:var(--ac);background:rgba(79,70,229,.1)}
 .fc .row{font-size:20px;font-weight:600}
 .fc .row small{display:block;opacity:.7;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
 .acts{display:flex;gap:12px;width:100%;margin-top:18px}
-.btn{flex:1;padding:15px;border-radius:16px;border:0;font-size:16px;font-weight:700;cursor:pointer;color:#fff}
+.btn{flex:1;padding:16px;border-radius:16px;border:0;font-size:18px;font-weight:700;cursor:pointer;color:#fff}
 .btn.no{background:#ef4444}.btn.yes{background:var(--ok)}.btn.go{background:var(--ac)}
 .lang{display:flex;gap:4px;flex:none}.lang button{border:1px solid var(--bd);background:var(--card);color:var(--mut);font-weight:700;font-size:12px;padding:5px 9px;border-radius:99px;cursor:pointer}.lang button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 .tr{color:var(--mut);font-size:14px;margin:2px 0 0 28px}.ipa{display:block;color:var(--mut);font-size:11px;font-weight:400;margin-top:1px;word-break:break-word}
 .fc .ipa{color:#fff;opacity:.7}.fc .tr{margin:0;color:#fff;opacity:.85;font-size:17px}
-.q{width:100%;display:flex;flex-direction:column}.q .row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:8px 0}.q .cell{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:10px 12px;min-width:30%;box-shadow:var(--sh);transition:all .25s ease}
-.q .cell small{display:block;color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.05em;font-weight:700}.q .cell b{font-size:17px}.q .miss{border:2px dashed var(--ac)}.q .miss b{color:var(--ac)}
-.q .miss.filled{border:2px solid var(--ok);background:rgba(22,163,74,.08)}.q .miss.filled b{color:var(--ok)}
-.opt{display:block;width:100%;padding:15px;margin:9px 0;border-radius:16px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:18px;font-weight:700;cursor:pointer;transition:background-color .2s, border-color .2s, opacity .2s}
+.q{width:100%;display:flex;flex-direction:column;flex:1;justify-content:space-between;padding:4px 0}
+.q .row{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:8px;margin:10px 0}
+.q .cell{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:12px 10px;text-align:center;box-shadow:var(--sh);transition:all .25s ease;display:flex;flex-direction:column;justify-content:center}
+.q .cell small{display:block;color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;margin-bottom:3px}
+.q .cell b{font-size:19px;line-height:1.2;overflow-wrap:anywhere}
+.q .miss{border:2px dashed var(--ac);background:rgba(79,70,229,.03)}
+.q .miss b{color:var(--ac)}
+.q .miss.filled{border:2px solid var(--ok);background:rgba(22,163,74,.08)}
+.q .miss.filled b{color:var(--ok)}
+.q .tr-badge{text-align:center;font-size:16px;font-weight:700;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 14px;margin:4px 0 14px;box-shadow:var(--sh)}
+.opts-container{display:flex;flex-direction:column;gap:10px;margin-bottom:auto}
+.opt{display:block;width:100%;padding:16px 18px;border-radius:16px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:20px;font-weight:700;cursor:pointer;text-align:center;box-shadow:var(--sh);transition:background-color .2s, border-color .2s}
 .opt.ok{background:var(--ok);color:#fff;border-color:var(--ok)}.opt.bad{background:#ef4444;color:#fff;border-color:#ef4444}
-.score{text-align:right;font-weight:800;font-size:20px;color:var(--st)}
+.score{text-align:right;font-weight:800;font-size:22px;color:var(--st);margin-bottom:4px}
 #ls{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:linear-gradient(160deg,#4f46e5,#6b21a8);color:#fff;text-align:center}
 #ls img{width:96px;height:96px;border-radius:24px;box-shadow:0 12px 30px rgba(0,0,0,.3);margin-bottom:6px}
 #ls h2{margin:0;font-size:26px;font-weight:800;letter-spacing:-.02em}#ls p{margin:0 0 14px;opacity:.85;font-size:16px}
@@ -204,10 +212,18 @@ function renderQuiz(){
   const v=V[qd[qi]], h=Math.random()<.5?1:2, forms=[v.inf,v.pt,perf(v)], lab=['Infinitiv','Präteritum','Partizip II'];
   const c=forms[h], opts=[c,...fakes(c,h,v)].sort(()=>Math.random()-.5);
   qa={v,h,c};
-  el.innerHTML=`<div class="q"><div class="score">${qs} ★</div><div class="prog"><div style="width:${qi/qd.length*100}%"></div></div>
-  <div class="row">${forms.map((f,i)=>`<div class="cell ${i===h?'miss':''}"><small>${lab[i]}</small><b>${i===h?'?':f}</b></div>`).join('')}</div>
-  <div class="tr" style="margin:6px 0 12px;text-align:center">${v.tr[lang]}</div>
-  ${opts.map(o=>`<button class="opt" data-o="${o.replace(/"/g,'&quot;')}">${o}</button>`).join('')}<div id="qn"></div></div>`;
+  el.innerHTML=`<div class="q">
+    <div>
+      <div class="score">${qs} ★</div>
+      <div class="prog"><div style="width:${qi/qd.length*100}%"></div></div>
+      <div class="row">${forms.map((f,i)=>`<div class="cell ${i===h?'miss':''}"><small>${lab[i]}</small><b>${i===h?'?':f}</b></div>`).join('')}</div>
+      <div class="tr-badge">${v.tr[lang]}</div>
+    </div>
+    <div class="opts-container">
+      ${opts.map(o=>`<button class="opt" data-o="${o.replace(/"/g,'&quot;')}">${o}</button>`).join('')}
+    </div>
+    <div id="qn"></div>
+  </div>`;
 }
 function answer(b){
   const {v,c}=qa, isCorrect=b.dataset.o===c;
@@ -227,7 +243,7 @@ function answer(b){
     document.querySelectorAll('.opt').forEach(x=>{if(x.dataset.o===c)x.classList.add('ok')});
   }
   say(v);
-  $('#qn').innerHTML=`<button class="btn go" id="qnext" style="width:100%;margin-top:12px">${T().next}</button>`;
+  $('#qn').innerHTML=`<button class="btn go" id="qnext" style="width:100%;margin-top:6px">${T().next}</button>`;
 }
 function applyLang(){
   document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
